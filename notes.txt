@@ -1,0 +1,7 @@
+HOW TO MERGE FROM GITHOUB
+If any updates get made remotely to GitHub's dev branch: 
+- locally switch to "main" 
+- "git pull" 
+- switch back to your working branch 
+- then "git merge main"
+
