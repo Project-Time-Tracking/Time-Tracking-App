@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from models.index import Project, Task
+from server.models.index import Project, Task
 
 # Import database models into app (Adrian)
 app = Flask(__name__)
@@ -10,13 +10,13 @@ db = SQLAlchemy(app)
 #Create a route for Home page (Adrian)
 @app.route("/")
 def home():
-    return "Hello, Flask!" #this is imcomplete and will need to be worked on
+    return render_template("home.html")
 
 # Create a route for Projects (Adrian)
 @app.route('/projects')
 def project():
     projects = Project.query.all()
-    return render_template('home.html', projects=projects)
+    return render_template('projects.html', projects=projects)
 
 # Create a Route for Tasks (Adrian)
 @app.route('/projects/<int:id>')
