@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .task {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+  
+  .task label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .task input[type="text"],
+  .task input[type="number"],
+  .task input[type="checkbox"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .task input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .task button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .task button.delete {
+    background-color: #f44336;
+  }
+  
+  .task button.update {
+    background-color: #2196F3;
+  }
+  
+  .task button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .task button.delete:hover {
+    background-color: #c62828;
+  }
+  
+  .task button.update:hover {
+    background-color: #0d47a1;
+  }
+  table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+  }
+  
+  th {
+      background-color: lightgray;
+  }
+  
+  input[type="checkbox"] {
+      transform: scale(1.5);
+  }
