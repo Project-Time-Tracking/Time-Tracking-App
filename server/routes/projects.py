@@ -13,7 +13,7 @@ def create_project():
     return jsonify({'message': 'Project created successfully!'})
 
 # Update an existing project (matt)
-@app.route('/projects/<int:id>', methods=['PUT'])
+@app.route('/projects/<int:id>', methods=['POST'])
 def update_project(id):
     project = Project.query.get(id)
     if not project:
