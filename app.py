@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from server.models.index import Project, Task
 
 # Import database models into app (Adrian)
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/templates', static_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
 db = SQLAlchemy(app)
 
@@ -16,7 +16,7 @@ def home():
 @app.route('/projects')
 def project():
     projects = Project.query.all()
-    return render_template('projects.html', projects=projects)
+    return render_template("projects.html", projects=projects)
 
 # Create a Route for Tasks (Adrian)
 @app.route('/projects/<int:id>')

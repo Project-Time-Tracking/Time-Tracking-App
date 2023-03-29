@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task List</title>
+	<link rel="stylesheet" href="/templates/style.css">
+</head>
+<body>
+	<h1>Task List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>Estimated Time</th>
+				<th>Actual Time</th>
+				<th>Completed</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for task in tasks %}
+			<tr>
+				<form id="update-form-{{ task.id }}" action="{{ url_for('update_task', project_id=project.id, task_id=task.id) }}" method="POST">
+					<input type="hidden" name="_method" value="PUT">
+					<td><input type="text" name="description" value="{{ task.description }}"></td>
+					<td><input type="text" name="time_estimate" value="{{ task.time_estimate }}"></td>
+					<td><input type="text" name="time_actual" value="{{ task.time_actual }}"></td>
+					<td><input type="checkbox" name="completed" {% if task.completed %}checked{% endif %}></td>
+					<td>
+						<button type="submit" form="update-form-{{ task.id }}">Update</button>
+						<form action="{{ url_for('delete_task', project_id=project.id, task_id=task.id) }}" method="POST">
+							<input type="hidden" name="_method" value="DELETE">
+							<button>Delete</button>
+						</form>
+					</td>
+				</form>
+			</tr>
+			{% endfor %}
+			<tr>
+				<form action="{{ url_for('create_task', project_id=project.id) }}" method="POST">
+					<td><input type="text" name="description"></td>
+					<td><input type="text" name="time_estimate"></td>
+					<td><input type="text" name="time_actual"></td>
+					<td><input type="checkbox" name="completed"></td>
+					<td><button>Create</button></td>
+				</form>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
