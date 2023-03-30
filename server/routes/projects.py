@@ -1,10 +1,9 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from models.index import Project, Task
+from flask import jsonify, request
+from models.index import db, Project
+import app
 
-
-# Create a new project (matt)
-@app.route('/projects', methods=['POST'])
+# Create a new project
+@app.route('/new', methods=['POST'])
 def create_project():
     data = request.get_json()
     project = Project(title=data['title'], description=data['description'])
@@ -12,8 +11,8 @@ def create_project():
     db.session.commit()
     return jsonify({'message': 'Project created successfully!'})
 
-# Update an existing project (matt)
-@app.route('/projects/<int:id>', methods=['POST'])
+# Update an existing project
+@app.route('/projects/<int:id>', methods=['PUT'])
 def update_project(id):
     project = Project.query.get(id)
     if not project:
@@ -24,7 +23,7 @@ def update_project(id):
     db.session.commit()
     return jsonify({'message': 'Project updated successfully!'})
 
-# Delete an existing project (matt)
+# Delete an existing project
 @app.route('/projects/<int:id>', methods=['DELETE'])
 def delete_project(id):
     project = Project.query.get(id)
@@ -33,6 +32,6 @@ def delete_project(id):
     db.session.delete(project)
     db.session.commit()
     return jsonify({'message': 'Project deleted successfully!'})
-#(matt)
+
 if __name__ == '__main__':
     app.run(debug=True)

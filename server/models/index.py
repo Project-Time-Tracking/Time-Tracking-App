@@ -1,6 +1,7 @@
 # Import SQLAlchemy / Flask
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+
+
 # Assign to variable db
 db = SQLAlchemy()
 
@@ -19,7 +20,7 @@ class Task(db.Model):
     time_actual = db.Column(db.Integer)
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
     project = db.relationship('Project', backref=db.backref('tasks', lazy=True))
-
+    #Create a funtion to return a string (Adrian)
     def to_dict(self):
         return {
             'id': self.id,
