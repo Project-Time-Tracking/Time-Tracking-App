@@ -9,7 +9,6 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    tasks = db.relationship('Task', backref='project')
 
 #Create a model for tasks (Adrian)
 class Task(db.Model):
@@ -19,6 +18,7 @@ class Task(db.Model):
     completed = db.Column(db.Boolean, default=False)
     time_actual = db.Column(db.Integer)
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
+    project = db.relationship('Project', backref=db.backref('tasks', lazy=True))
 
     def to_dict(self):
         return {

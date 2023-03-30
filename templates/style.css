@@ -1,0 +1,146 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap');
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #F9ED69;
+  color: #6A2C70;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-family: 'Merriweather', serif;
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Navigation */
+nav {
+  background-color: #F08A5D;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  margin: 0 0 20px;
+  color: #6A2C70;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+ul {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  background-color: #B83B5E;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.completed {
+  background-color: #F9ED69;
+  color: black;
+}
+
+li span {
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  li {
+    font-size: 14px;
+    padding: 5px;
+  }
+}

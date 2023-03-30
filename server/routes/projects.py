@@ -15,8 +15,8 @@ def create_project():
     db.session.commit()
     return jsonify({'message': 'Project created successfully!'})
 
-# Update an existing project
-@app.route('/projects/<int:id>', methods=['PUT'])
+# Update an existing project (matt)
+@app.route('/projects/<int:id>', methods=['POST'])
 def update_project(id):
     project = Project.query.get(id)
     if not project:
