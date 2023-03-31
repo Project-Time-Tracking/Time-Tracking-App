@@ -1,7 +1,6 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from models.index import Project, Task
-
+from flask import jsonify, request
+from models.index import db, Project, Task
+import app
 
 #(matt)
 @app.route('/projects/<int:project_id>/tasks', methods=['POST'])

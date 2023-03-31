@@ -1,11 +1,12 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from server.models.index import Project, Task
+from server.models.index import db, Project, Task
 
 # Import database models into app (Adrian)
-app = Flask(__name__,static_url_path='/templates', static_folder='templates')
+app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'
-db = SQLAlchemy(app)
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 #Create a route for Home page (Adrian)
 @app.route("/")
